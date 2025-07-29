@@ -1,0 +1,127 @@
+<Window x:Class="CorporationSecurity.AddControlWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Control" Height="500" Width="600" 
+        WindowStartupLocation="CenterOwner"
+        Background="#f8f8f8">
+    
+    <Window.Resources>
+        <Style x:Key="FormLabelStyle" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+            <Setter Property="Foreground" Value="#333"/>
+        </Style>
+        
+        <Style x:Key="FormTextBoxStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Margin" Value="0,0,0,16"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#ddd"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+        
+        <Style x:Key="FormComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="12,8"/>
+            <Setter Property="Margin" Value="0,0,0,16"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#ddd"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
+        
+        <Style x:Key="GreenButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#27ae60"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="24,12"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <Style x:Key="CancelButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#95a5a6"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="24,12"/>
+            <Setter Property="Margin" Value="8"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="6">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,24">
+            <TextBlock Text="🛡️" FontSize="32" Margin="0,0,12,0"/>
+            <TextBlock Text="Add New Control" FontSize="24" FontWeight="Bold" Foreground="#27ae60" VerticalAlignment="Center"/>
+        </StackPanel>
+        
+        <!-- Form Content -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <!-- Asset Selection (Read-only) -->
+                <TextBlock Text="Asset:" Style="{StaticResource FormLabelStyle}"/>
+                <TextBox x:Name="AssetTextBox" Style="{StaticResource FormTextBoxStyle}" IsReadOnly="True" Background="#f5f5f5"/>
+                
+                <!-- Risk Selection (Read-only) -->
+                <TextBlock Text="Risk:" Style="{StaticResource FormLabelStyle}"/>
+                <TextBox x:Name="RiskTextBox" Style="{StaticResource FormTextBoxStyle}" IsReadOnly="True" Background="#f5f5f5"/>
+                
+                <!-- Control Description -->
+                <TextBlock Text="Control Description:" Style="{StaticResource FormLabelStyle}"/>
+                <TextBox x:Name="DescriptionTextBox" Style="{StaticResource FormTextBoxStyle}" 
+                         AcceptsReturn="True" Height="80" TextWrapping="Wrap" 
+                         VerticalScrollBarVisibility="Auto"/>
+                
+                <!-- Effectiveness -->
+                <TextBlock Text="Effectiveness:" Style="{StaticResource FormLabelStyle}"/>
+                <ComboBox x:Name="EffectivenessComboBox" Style="{StaticResource FormComboBoxStyle}">
+                    <ComboBoxItem Content="Pass" IsSelected="True"/>
+                    <ComboBoxItem Content="Fail"/>
+                    <ComboBoxItem Content="Pending"/>
+                </ComboBox>
+                
+                <!-- Additional Notes -->
+                <TextBlock Text="Additional Notes (Optional):" Style="{StaticResource FormLabelStyle}"/>
+                <TextBox x:Name="NotesTextBox" Style="{StaticResource FormTextBoxStyle}" 
+                         AcceptsReturn="True" Height="60" TextWrapping="Wrap" 
+                         VerticalScrollBarVisibility="Auto"/>
+            </StackPanel>
+        </ScrollViewer>
+        
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,24,0,0">
+            <Button x:Name="CancelButton" Content="Cancel" Style="{StaticResource CancelButtonStyle}" Click="CancelButton_Click"/>
+            <Button x:Name="SaveButton" Content="Save Control" Style="{StaticResource GreenButtonStyle}" Click="SaveButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window> 

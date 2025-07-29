@@ -1,0 +1,22 @@
+<Window x:Class="CorporationSecurity.AddAssetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Asset" Height="400" Width="500" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Background="#f4f6fa" Margin="0">
+        <Border Background="White" CornerRadius="10" Padding="24" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Add New Asset" FontSize="20" FontWeight="Bold" Foreground="#27ae60" Margin="0,0,0,18" HorizontalAlignment="Center"/>
+                <TextBlock Text="Name" FontWeight="SemiBold"/>
+                <TextBox x:Name="NameBox" Margin="0,0,0,12" Height="28"/>
+                <TextBlock Text="Category" FontWeight="SemiBold"/>
+                <ComboBox x:Name="CategoryBox" Margin="0,0,0,12" Height="28"/>
+                <TextBlock Text="Description" FontWeight="SemiBold"/>
+                <TextBox x:Name="DescriptionBox" Margin="0,0,0,18" Height="60" TextWrapping="Wrap" AcceptsReturn="True"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="Cancel" Width="80" Margin="0,0,10,0" Click="Cancel_Click"/>
+                    <Button Content="Save" Width="80" Background="#27ae60" Foreground="White" FontWeight="Bold" Click="Save_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window> 

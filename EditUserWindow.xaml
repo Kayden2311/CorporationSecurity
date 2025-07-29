@@ -1,0 +1,58 @@
+<Window x:Class="CorporationSecurity.EditUserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Edit User" Height="520" Width="600" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Background="#f4f6fa">
+        <Border Background="White" CornerRadius="14" Padding="30" VerticalAlignment="Center" HorizontalAlignment="Center" Width="540" >
+            <StackPanel>
+                <TextBlock Text="Edit User" FontSize="20" FontWeight="Bold" Foreground="#27ae60" Margin="0,0,0,18" HorizontalAlignment="Center"/>
+                <Grid Margin="0,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <!-- First Name -->
+                    <StackPanel Grid.Row="0" Grid.Column="0" Margin="0,0,18,18">
+                        <TextBlock Text="First Name" FontWeight="SemiBold" Margin="0,0,0,4" FontSize="12"/>
+                        <TextBox x:Name="FirstNameBox" Height="32" FontSize="13" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <!-- Last Name -->
+                    <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,0,0,18">
+                        <TextBlock Text="Last Name" FontWeight="SemiBold" Margin="0,0,0,4" FontSize="12"/>
+                        <TextBox x:Name="LastNameBox" Height="32" FontSize="13" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <!-- Email -->
+                    <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,18,18">
+                        <TextBlock Text="Email" FontWeight="SemiBold" Margin="0,0,0,4" FontSize="12"/>
+                        <TextBox x:Name="EmailBox" Height="32" FontSize="13" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <!-- Role -->
+                    <StackPanel Grid.Row="1" Grid.Column="1" Margin="0,0,0,18">
+                        <TextBlock Text="Role" FontWeight="SemiBold" Margin="0,0,0,4" FontSize="12"/>
+                        <ComboBox x:Name="RoleBox" Height="32" FontSize="13" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <!-- Password -->
+                    <StackPanel Grid.Row="2" Grid.Column="0" Margin="0,0,18,18">
+                        <TextBlock Text="Password" FontWeight="SemiBold" Margin="0,0,0,4" FontSize="12"/>
+                        <TextBox x:Name="PasswordBox" Height="32" FontSize="13" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <!-- IsActive -->
+                    <StackPanel Grid.Row="2" Grid.Column="1" Margin="0,24,0,0" VerticalAlignment="Top">
+                        <CheckBox x:Name="IsActiveBox" Content="Active" FontSize="12"/>
+                    </StackPanel>
+                </Grid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,24,0,0">
+                    <Button Content="Cancel" Width="80" Margin="0,0,8,0" Click="Cancel_Click"/>
+                    <Button Content="Save" Width="80" Background="#27ae60" Foreground="White" FontWeight="Bold" Click="Save_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window> 
